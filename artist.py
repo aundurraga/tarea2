@@ -16,9 +16,9 @@ def create_artist(name, age):
     if len(id_artist) >= 22:
         id_artist = id_artist[:22]
     statement = "INSERT INTO artist(id, name, age, albums, tracks, self) VALUES (?, ?, ?, ?, ?, ?)"
-    albums = f"https://t2-tdi.herokuapp.com/artists/{id_artist}/albums"
-    tracks = f"https://t2-tdi.herokuapp.com/artists/{id_artist}/tracks"
-    self_page = f"https://t2-tdi.herokuapp.com/artists/{id_artist}"
+    albums = f"https://t2-tallerdeintegracion.herokuapp.com/artists/{id_artist}/albums"
+    tracks = f"https://t2-tallerdeintegracion.herokuapp.com/artists/{id_artist}/tracks"
+    self_page = f"https://t2-tallerdeintegracion.herokuapp.com/artists/{id_artist}"
     cursor.execute(statement, [id_artist, name, age, albums, tracks, self_page])
     db.commit()
     return {"id": id_artist, "name": name, "age": age, "albums": albums, "tracks": tracks, "self": self_page}, 201
