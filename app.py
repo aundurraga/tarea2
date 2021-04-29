@@ -2,7 +2,6 @@ import flask
 import sys
 import os
 from database import connect_database
-import artist, album, track
 import sqlite3 
 
 connect_database()
