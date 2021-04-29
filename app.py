@@ -19,7 +19,7 @@ def home():
 "Creamos los elementos de la base de datos: POST"
 
 
-"@app.route("/artists", methods=["POST"])"
+"""@app.route("/artists", methods=["POST"])"""
 
 
 if __name__ == "__main__":
