@@ -15,6 +15,7 @@ def check_album(id):
     db = connect_database()
     cursor = db.cursor()
     album = cursor.execute("SELECT id, artist_id, name, genre, artist, tracks, self FROM album WHERE id=?", [id]).fetchone()
+    print(id)
     if album:
         return {"id": album[0], "artist_id": album[1], "name": album[2], "genre": album[3],"artist": album[4], "tracks": album[5], "self": album[6]}
     else:
@@ -41,10 +42,12 @@ def artist_new(name):
     else:
         return 0
 
-def album_new(name):
-    id = b64encode(name.encode()).decode('utf-8')
-    if len(id) > 22:
+def album_new(name,id_artista):
+    name_id = f"{name}:{id_artista}"
+    id = b64encode(name_id.encode()).decode('utf-8')
+    if len(id) >= 22:
         id = id[0:22]
+    
     db = connect_database()
     cursor = db.cursor()
     album = cursor.execute("SELECT id, artist_id, name, genre, artist, tracks, self FROM album WHERE id=?", [id]).fetchone()
@@ -53,10 +56,12 @@ def album_new(name):
     else:
         return 0
 
-def track_new(name):
-    id = b64encode(name.encode()).decode('utf-8')
-    if len(id) > 22:
+def track_new(name,id_album):
+    name_track = f"{name}:{id_album}"
+    id= b64encode(name_track.encode()).decode('utf-8')
+    if len(id) >= 22:
         id = id[0:22]
+    
     db = connect_database()
     cursor = db.cursor()
     track = cursor.execute("SELECT id, album_id, name, duration, times_played, artist, album, self FROM track WHERE id = ?", [id]).fetchone()
