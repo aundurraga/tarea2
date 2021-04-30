@@ -154,7 +154,7 @@ def track_id(id):
 
 @app.route('/artists/<id>/albums/play', methods=["PUT","GET", "POST", "DELETE", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def put_artist_tracks(id):
-    if flask.request.method == "GET":
+    if flask.request.method == "PUT":
         resultado = put.put_artist_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
@@ -162,7 +162,7 @@ def put_artist_tracks(id):
 
 @app.route('/albums/<id>/tracks/play', methods=["PUT","GET", "POST", "DELETE", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def put_album_tracks(id):
-    if flask.request.method == "GET":
+    if flask.request.method == "PUT":
         resultado = put.put_album_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
@@ -170,7 +170,7 @@ def put_album_tracks(id):
 
 @app.route('/tracks/<id>/play', methods=["PUT","GET", "POST", "DELETE", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def put_tracks(id):
-    if flask.request.method == "GET":
+    if flask.request.method == "PUT":
         resultado = put.put_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
