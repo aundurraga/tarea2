@@ -32,7 +32,7 @@ def artist():
             if(info["age"]!=None): 
                 age = info["age"]
         resultado = post.create_artist(name, age)
-        return flask.jsonify(resultado[0]), resultado[1]
+        return flask.jsonify(resultado[0][0]), resultado[1]
     else:
         return jsonify("Este metodo no está permitido"), 405
 
