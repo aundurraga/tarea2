@@ -42,7 +42,7 @@ def get_album():
         resultado = get.get_album()
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/tracks', methods=["GET","POST", "DELETE", "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def get_track():
@@ -50,7 +50,7 @@ def get_track():
         resultado = get.get_track()
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 
 @app.route('/artists/<id>', methods=["GET","DELETE","POST", "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"  ])
@@ -63,7 +63,7 @@ def artist_id(id):
         resultado = delete.delete_artist_id(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/artists/<id>/albums', methods=["GET","POST","DELETE", "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"  ])
 def artist_id_albums(id):
@@ -83,7 +83,7 @@ def artist_id_albums(id):
         resultado = post.create_album(id, name, genre)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/artists/<id>/tracks', methods=["GET","POST", "DELETE", "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def get_artist_id_tracks(id):
@@ -91,7 +91,7 @@ def get_artist_id_tracks(id):
         resultado = get.get_artist_id_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/albums/<id>', methods=["GET", "DELETE","POST", "PUT","PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW" ])
 def album_id(id):
@@ -103,7 +103,7 @@ def album_id(id):
         resultado = delete.delete_album_id(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/albums/<id>/tracks', methods=["GET", "POST","DELETE", "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW" ])
 def album_id_tracks(id):
@@ -123,7 +123,7 @@ def album_id_tracks(id):
         resultado = post.create_track(id, name, duration)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/tracks/<id>', methods=["GET", "DELETE","POST",  "PUT", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def track_id(id):
@@ -146,7 +146,7 @@ def put_artist_tracks(id):
         resultado = put.put_artist_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/albums/<id>/tracks/play', methods=["PUT","GET", "POST", "DELETE", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def put_album_tracks(id):
@@ -154,7 +154,7 @@ def put_album_tracks(id):
         resultado = put.put_album_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 @app.route('/tracks/<id>/play', methods=["PUT","GET", "POST", "DELETE", "PATCH", "COPY", "HEAD", "OPTIONS", "LINK", "UNLINK", "PURGE", "LOCK", "UNLOCK", "PROPFIND", "VIEW"])
 def put_tracks(id):
@@ -162,7 +162,7 @@ def put_tracks(id):
         resultado = put.put_tracks(id)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
-        return jsonify("Este metodo no está permitido"), 405
+        return flask.jsonify("Este metodo no está permitido"), 405
 
 if __name__ == "__main__":
     app.run(debug=True)
