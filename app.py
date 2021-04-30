@@ -19,7 +19,7 @@ def home():
 def artist():
     if flask.request.method == "GET":
         resultado = get.get_artist()
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
 
     elif flask.request.method == "POST":
         info = flask.request.get_json()
@@ -40,7 +40,7 @@ def artist():
 def get_album():
     if flask.request.method == "GET":
         resultado = get.get_album()
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     else:
         return jsonify("Este metodo no está permitido"), 405
 
@@ -48,7 +48,7 @@ def get_album():
 def get_track():
     if flask.request.method == "GET":
         resultado = get.get_track()
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     else:
         return jsonify("Este metodo no está permitido"), 405
 
@@ -57,7 +57,7 @@ def get_track():
 def artist_id(id):
     if flask.request.method == "GET":
         resultado = get.get_artist_id(id)
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
 
     elif flask.request.method == "DELETE":
         resultado = delete.delete_artist_id(id)
@@ -69,7 +69,7 @@ def artist_id(id):
 def artist_id_albums(id):
     if flask.request.method == "GET":
         resultado = get.get_artist_id_albums(id)
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     elif flask.request.method == "POST":
         info = flask.request.get_json()
         if type(info) == type(None) or info == {}:
@@ -89,7 +89,7 @@ def artist_id_albums(id):
 def get_artist_id_tracks(id):
     if flask.request.method == "GET":
         resultado = get.get_artist_id_tracks(id)
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     else:
         return jsonify("Este metodo no está permitido"), 405
 
@@ -109,7 +109,7 @@ def album_id(id):
 def album_id_tracks(id):
     if flask.request.method == "GET":
         resultado = get.get_album_id_tracks(id)
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     elif flask.request.method == "POST":
         info = flask.request.get_json()
         if type(info) == type(None) or info == {}:
@@ -129,7 +129,7 @@ def album_id_tracks(id):
 def track_id(id):
     if flask.request.method == "GET":
         resultado = get.get_track_id(id)
-        return flask.jsonify(resultado[0][0]), resultado[1]
+        return flask.jsonify(resultado[0]), resultado[1]
     elif flask.request.method == "DELETE":
         resultado = delete.delete_track_id(id)
         return flask.jsonify(resultado[0]), resultado[1]
