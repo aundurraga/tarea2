@@ -80,10 +80,14 @@ def artist_id_albums(id):
             name = None
             genre = None
         else:
-            if(info["name"]!=None): 
+            if("name" in info): 
                 name = info["name"]
-            if(info["genre"]!=None): 
+            else:
+                name = None
+            if("genre" in info): 
                 genre = info["genre"]
+            else:
+                genre = None
         resultado = post.create_album(id, name, genre)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
@@ -120,10 +124,14 @@ def album_id_tracks(id):
             name = None
             duratiom = None
         else:
-            if(info["name"]!=None): 
+            if("name" in info): 
                 name = info["name"]
-            if(info["duration"]!=None): 
+            else:
+                name = None
+            if("duration" in info): 
                 duration = info["duration"]
+            else:
+                duration = None
         resultado = post.create_track(id, name, duration)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
