@@ -27,10 +27,14 @@ def artist():
             name = None
             age = None
         else:
-            if(info["name"]!=None): 
+            if("name" in info): 
                 name = info["name"]
-            if(info["age"]!=None): 
+            else:
+                name = None
+            if("age" in info): 
                 age = info["age"]
+            else:
+                age = None
         resultado = post.create_artist(name, age)
         return flask.jsonify(resultado[0]), resultado[1]
     else:
