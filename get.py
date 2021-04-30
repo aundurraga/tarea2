@@ -39,7 +39,7 @@ def get_artist_id(id):
         db = connect_database()
         cursor = db.cursor()
         artista = cursor.execute("SELECT id, name, age, albums, tracks, self FROM artist WHERE id=?",[id]).fetchone()
-        lista = [{"id": artista[0], "name": artista[1], "age": artista[2], "albums": artista[3], "tracks": artista[4], "self": artista[5]}]
+        lista = {"id": artista[0], "name": artista[1], "age": artista[2], "albums": artista[3], "tracks": artista[4], "self": artista[5]}
         return [lista, 200] 
 
 def get_artist_id_albums(id):
@@ -78,7 +78,7 @@ def get_album_id(id):
         db = connect_database()
         cursor = db.cursor()
         album = cursor.execute("SELECT id, artist_id, name, genre, artist, tracks, self FROM album WHERE id=?", [id]).fetchone()
-        lista = [{"id": album[0], "artist_id": album[1], "name": album[2], "genre": album[3],"artist": album[4], "tracks": album[5], "self": album[6]}]
+        lista = {"id": album[0], "artist_id": album[1], "name": album[2], "genre": album[3],"artist": album[4], "tracks": album[5], "self": album[6]}
         return [lista, 200] 
 
 def get_album_id_tracks(id):
@@ -102,5 +102,5 @@ def get_track_id(id):
         db = connect_database()
         cursor = db.cursor()
         track = cursor.execute("SELECT id, album_id, name, duration, times_played, artist, album, self FROM track WHERE id=?", [id]).fetchone()
-        lista = [{"id": track[0], "album_id": track[1], "name": track[2], "duration": track[3], "times_played": track[4],"artist": track[5],"album": track[6], "self": track[7]}]
+        lista = {"id": track[0], "album_id": track[1], "name": track[2], "duration": track[3], "times_played": track[4],"artist": track[5],"album": track[6], "self": track[7]}
         return [lista, 200] 
